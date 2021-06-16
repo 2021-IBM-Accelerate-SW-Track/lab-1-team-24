@@ -14,6 +14,16 @@ function TodoList() {
         setTodos(newTodos)
     }
 
+    const updateTodo = function(todoId, newValue){
+        //check for dups
+        if(!newValue.text || /^\s*$/.test(newValue.text))
+            return 
+        
+            setTodos(prev => prev.map(item => 
+                item.id === todoId ? newValue : item 
+                ))
+    }
+
     const removeTodo = function(id){
         var check;
         var array = [...todos]
@@ -22,7 +32,7 @@ function TodoList() {
             check = array[i]
        }
        var index = array.indexOf(check)
-       if(index != -1){
+       if(index !== -1){
            array.splice(index,1);
            setTodos(array)
        }
@@ -46,6 +56,7 @@ function TodoList() {
                 todos = {todos}
                 completeTodo = {completeTodo}
                 removeTodo = {removeTodo}
+                updateTodo = {updateTodo}
             />
         </div>
     )
