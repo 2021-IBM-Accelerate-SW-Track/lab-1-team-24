@@ -17,12 +17,14 @@ function TodoForm(props) {
 
     const handleSubmit = function(e){
         e.preventDefault();
+        var today = new Date()
+        var currTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
         props.onSubmit({
              id: Math.floor(Math.random() * 10000),
              text: input,
+             time: currTime
         });
-
         setInput('')
     }
 
@@ -38,14 +40,14 @@ function TodoForm(props) {
                         className = "todo-input edit"
                         onChange = {handleChange}
                         ref = {inputRef}
-                        data-testid="new-item-input"
                     />
-                    <button data-testid="new-item-button"
+                    <button
                         className = "todo-button edit"> Update </button>
                     <hr/>
                 </div>
             ):(<div> 
                     <input 
+                        data-testid="new-item-input"
                         type = "text" 
                         placeholder = "Add a Todo" 
                         value = {input} 
@@ -53,10 +55,9 @@ function TodoForm(props) {
                         className = "todo-input"
                         onChange = {handleChange}
                         ref = {inputRef}
-                        data-testid="new-item-input"
                     />
-                    <button data-testid="new-item-button"
-                    className = "todo-button"> Add Todo </button>
+                    <button 
+                        className = "todo-button"> Add Todo </button>
                     <hr/>
                 </div> 
             )}   
