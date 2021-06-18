@@ -67,7 +67,16 @@ function TodoList() {
 
     const updateTime = function(todo){
         var today = new Date()
-        var currTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var currTime = today.getHours() + ":"
+        if (today.getMinutes < 10)
+            currTime += "0" + today.getMinutes
+        else
+            currTime += today.getMinutes
+        
+        if (today.getSeconds < 10)
+            currTime += "0" + today.getSeconds
+        else
+            currTime += today.getSeconds 
 
         todo.time = currTime
     }

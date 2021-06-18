@@ -17,8 +17,21 @@ function TodoForm(props) {
 
     const handleSubmit = function(e){
         e.preventDefault();
+
         var today = new Date()
-        var currTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var currTime = today.getHours() + ":"
+        var mins = today.getMinutes()
+        var seconds = today.getSeconds()
+        if(mins < 10)
+            currTime += 0 + "" + mins + ":"
+        else
+            currTime += mins + ":"
+        
+        if(seconds < 10)
+            currTime += 0 + "" + seconds
+        else
+            currTime += seconds
+
 
         props.onSubmit({
              id: Math.floor(Math.random() * 10000),

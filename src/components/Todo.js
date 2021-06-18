@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 import { RiCloseCircleLine } from "react-icons/ri";
+import EditIcon from "./icons/EditIcon.png";
+import Trash from "./icons/trash.png";
+import Clock from "./icons/alarm.png";
 import { TiEdit } from "react-icons/ti";
 import { FaClock } from "react-icons/fa";
 
@@ -38,31 +41,27 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime, update
       className={todo.isComplete ? "todo-row complete" : "todo-row"}
       key={index}
     >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+      <div className = "todo-name"key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
       </div>
       <div className="icons">
-        <RiCloseCircleLine
+        <img src = {Trash}
           onClick={() => {
             removeTodo(todo.id);
           }}
           className="delete-icon"
         />
-        <TiEdit
-          onClick={() => {
-            setEdit({ id: todo.id, value: todo.text });
-          }}
-          className="edit-icon"
+        
+        <img src = {EditIcon} className="edit-icon"  
+          onClick={() => {setEdit({ id: todo.id, value: todo.text });}}
         />
 
-        <FaClock
-          classname="clock"
-          onMouseEnter={() => onHover(todo.id)}
-          onMouseLeave={onLeave}
-        >
-          {" "}
-        </FaClock> 
-        {hover === todo.id && <span> {displayTime(todo.id)} </span>}
+        <img src = {Clock} 
+            classname="clock"
+            onMouseEnter={() => onHover(todo.id)}
+            onMouseLeave={onLeave}
+        />
+        {hover === todo.id && <span className = "time"> {displayTime(todo.id)} </span>}
       </div>
       <hr />
     </div>
