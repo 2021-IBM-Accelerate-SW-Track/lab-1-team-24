@@ -4,7 +4,7 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { FaClock } from "react-icons/fa";
 
-function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime }) {
+function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime, updateTime }) {
   const [edit, setEdit] = useState({
     id: null,
     value: ""
@@ -22,6 +22,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime }) {
 
   const submitUpdate = function (value) {
     updateTodo(edit.id, value);
+    updateTime(edit);
     setEdit({
       id: null,
       value: ""

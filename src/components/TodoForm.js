@@ -41,7 +41,7 @@ function TodoForm(props) {
                         onChange = {handleChange}
                         ref = {inputRef}
                     />
-                    <Button onClick = {handleSubmit}
+                    <Button type="submit" onClick = {handleSubmit} onKeyDown ={handleSubmit}
                         className = "todo-button edit"> Update </Button>
                     <hr/>
                 </div>
@@ -56,7 +56,7 @@ function TodoForm(props) {
                         onChange = {handleChange}
                         ref = {inputRef}
                     />
-                    <Button data-testid = "new-item-button" onClick = {handleSubmit}
+                    <Button type="submit" data-testid = "new-item-button" onClick = {handleSubmit} onKeyDown ={handleSubmit}
                         className = "todo-button"> Add Todo </Button>
                     <hr/>
                 </div> 

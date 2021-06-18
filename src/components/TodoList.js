@@ -23,7 +23,7 @@ function TodoList() {
         var check = false;
         var array = [...todos]
         for(let i = 0 ; i < array.length; i++){
-            if(array[i].text === text)
+            if(array[i].text.trim(" ") === text.trim(" "))
                 check = true
         }
         return check
@@ -65,6 +65,13 @@ function TodoList() {
        return ( check.time )
     }
 
+    const updateTime = function(todo){
+        var today = new Date()
+        var currTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+        todo.time = currTime
+    }
+
 
     const completeTodo = function(id){
         let updateTodos = todos.map(todo => {
@@ -90,6 +97,7 @@ function TodoList() {
                 removeTodo = {removeTodo}
                 updateTodo = {updateTodo}
                 displayTime = {displayTime}
+                updateTime = {updateTime}
                 
             />
             <button onClick= {clear}> Clear </button>
