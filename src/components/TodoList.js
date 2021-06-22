@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { RiCheckLine } from 'react-icons/ri'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
 
@@ -109,7 +108,7 @@ function TodoList() {
                 updateTime = {updateTime}
                 
             />
-            <button onClick= {clear}> Clear </button>
+            <button className = "clear-button" onClick= {clear}> Clear </button>
         </div>
     )
 }

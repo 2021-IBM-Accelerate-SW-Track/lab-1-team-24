@@ -1,16 +1,19 @@
-.complete {
-  text-decoration: line-through;
-  opacity: 0.4;
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
 }
-
-* {
-  font: "arial";
+.edit-icon {
+  width: 32px;
 }
-
-.icons img {
+.delete-icon {
+  width: 32px;
+}
+.clock-icon {
   width: 32px;
 }
 
-.todo-name {
-  font-size: 32px;
+.time {
+  font-size: 15px;
 }

@@ -1,5 +1,6 @@
 import React , {useState, useEffect, useRef} from 'react'
 import Button from '@material-ui/core/Button'
+import {v4 as uuid} from 'uuid'
 
 function TodoForm(props) {
     
@@ -34,7 +35,7 @@ function TodoForm(props) {
 
 
         props.onSubmit({
-             id: Math.floor(Math.random() * 10000),
+             id: uuid(),
              text: input,
              time: currTime
         });

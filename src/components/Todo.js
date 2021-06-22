@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
-import { RiCloseCircleLine } from "react-icons/ri";
 import EditIcon from "./icons/EditIcon.png";
 import Trash from "./icons/trash.png";
 import Clock from "./icons/alarm.png";
-import { TiEdit } from "react-icons/ti";
-import { FaClock } from "react-icons/fa";
 
 function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime, updateTime }) {
   const [edit, setEdit] = useState({
@@ -46,23 +43,25 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo, displayTime, update
       </div>
       <div className="icons">
         <img src = {Trash}
+          alt = "trash"
           onClick={() => {
             removeTodo(todo.id);
           }}
           className="delete-icon"
         />
         
-        <img src = {EditIcon} className="edit-icon"  
+        <img src = {EditIcon} className="edit-icon"  alt = "edit"
           onClick={() => {setEdit({ id: todo.id, value: todo.text });}}
         />
 
         <img src = {Clock} 
-            classname="clock"
+            alt = "clock"
+            className="clock-icon"
             onMouseEnter={() => onHover(todo.id)}
             onMouseLeave={onLeave}
-        />
-        {hover === todo.id && <span className = "time"> {displayTime(todo.id)} </span>}
+        />  
       </div>
+      {hover === todo.id && <span className = "time"> {displayTime(todo.id)} </span>}
       <hr />
     </div>
   ));
